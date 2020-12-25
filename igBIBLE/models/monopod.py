@@ -2,7 +2,7 @@ from typing import List
 from scenario import core as scenario
 from gym_ignition.utils.scenario import get_unique_model_name
 from gym_ignition.scenario import model_wrapper, model_with_file
-
+import SIMP
 
 class Monopod(model_wrapper.ModelWrapper,
                model_with_file.ModelWithFile):
@@ -40,5 +40,4 @@ class Monopod(model_wrapper.ModelWrapper,
     @classmethod
     def get_model_file(cls) -> str:
 
-        import SIMP
         return SIMP.get_model_file("monopod_v1")

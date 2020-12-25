@@ -5,8 +5,8 @@ from gym_ignition.utils import logger
 from igBIBLE import randomizers
 
 # Set verbosity
-# logger.set_level(gym.logger.ERROR)
-logger.set_level(gym.logger.DEBUG)
+logger.set_level(gym.logger.ERROR)
+# logger.set_level(gym.logger.DEBUG)
 
 # Available tasks
 env_id = "Monopod-Gazebo-v1"
@@ -33,7 +33,6 @@ env = randomizers.monopod_no_rand.MonopodEnvNoRandomizations(env=make_env)
 
 # Enable the rendering
 env.render('human')
-
 # Initialize the seed
 env.seed(42)
 
