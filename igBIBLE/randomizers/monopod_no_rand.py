@@ -34,24 +34,28 @@ class MonopodEnvNoRandomizations(gazebo_env_randomizer.GazeboEnvRandomizer):
 
         gazebo = kwargs["gazebo"]
 
-        # Remove the model from the simulation
-        if task.model_name is not None and task.model_name in task.world.model_names():
-
-            if not task.world.to_gazebo().remove_model(task.model_name):
-                raise RuntimeError("Failed to remove the monopod from the world")
-            # time.sleep(4)
-        # # Execute a paused run to process model removal
-        # if not gazebo.run(paused=True):
-        #     raise RuntimeError("Failed to execute a paused Gazebo run")
-
-        # Insert a new monopod model
-        model = monopod.Monopod(world=task.world)
-
-        # Store the model name in the task
-        task.model_name = model.name()
-
-        # Execute a paused run to process model insertion
-
-        # if not gazebo.run(paused=True):
-        #     raise RuntimeError("Failed to execute a paused Gazebo run")
-        # time.sleep(4)
+        # # Remove the model from the simulation
+        # if task.model_name is not None and task.model_name in task.world.model_names():
+        #
+        #     if not task.world.to_gazebo().remove_model(task.model_name):
+        #         raise RuntimeError("Failed to remove the monopod from the world")
+        #     # time.sleep(4)
+        # # # Execute a paused run to process model removal
+        # # if not gazebo.run(paused=True):
+        # #     raise RuntimeError("Failed to execute a paused Gazebo run")
+        #
+        # # Insert a new monopod model
+        # model = monopod.Monopod(world=task.world)
+        #
+        # # Store the model name in the task
+        # task.model_name = model.name()
+        # # Execute a paused run to process model insertion
+        #
+        # # if not gazebo.run(paused=True):
+        # #     raise RuntimeError("Failed to execute a paused Gazebo run")
+        # # time.sleep(4)
+        time.sleep(4)
+        if task.model_name is None:
+            #insert model initially
+            model = monopod.Monopod(world=task.world)
+            task.model_name = model.name()
